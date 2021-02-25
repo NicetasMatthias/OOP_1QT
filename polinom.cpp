@@ -5,7 +5,6 @@ polinom::polinom()
 polinom::a=1;
 polinom::b=0;
 polinom::c=0;
-//polinom::x=0;
 }
 void polinom::set(number a,number b,number c)
 {
@@ -95,16 +94,16 @@ std::string polinom::canon()
         ss << std::showpos << polinom::a << "*(x" << -rts[0] << ")^2";
         break;
     case 3:
-        ss << "Многочлен не имеет вещественных корней";
+        ss << "The polynomial has no real roots";
         break;
     case 4:
-        ss << "Корни многочлена не целые";
+        ss << "The roots of the polynomial are not integer";
         break;
     case 5:
-        ss << "Один из корней многочлена не целый";
+        ss << "One of the roots of the polynomial is not integer";
         break;
     default:
-        ss << "Неизвестная ошибка при вычислении корней";
+        ss << "Unknown error while calculating roots";
         break;
     }
     return ss.str();

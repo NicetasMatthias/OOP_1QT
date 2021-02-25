@@ -13,13 +13,13 @@ void application::menu()
     number tmp[3];
     while (application::var!=6)
     {
-        std::cout   << "Выберите желаемое действие путем ввода числа:" << std::endl
-                    << "1 - Ввести коэффициенты a, b, c" << std::endl
-                    << "2 - Рассчитать корни полинома" << std::endl
-                    << "3 - Рассчитать значение полинома при указанном x" << std::endl
-                    << "4 - Вывести полином в стандартной форме" << std::endl
-                    << "5 - Вывести полином в канонической форме" << std::endl
-                    << "6 - Закончить работу с приложением" << std::endl
+        std :: cout << "Select the desired action by entering a number:" << std :: endl
+                    << "1 - Enter coefficients a, b, c" << std :: endl
+                    << "2 - Calculate the roots of the polynomial" << std :: endl
+                    << "3 - Calculate the value of the polynomial at the specified x" << std :: endl
+                    << "4 - Print the polynomial in standard form" << std :: endl
+                    << "5 - Print the polynomial in canonical form" << std :: endl
+                    << "6 - End application" << std :: endl
                     << ">>";
         std::cin >> application::var;
         if (DBG) std::cout << "var = " << application::var << std::endl;
@@ -52,16 +52,16 @@ void application::menu()
                 std::cout << "x1,x2 = " << tmp[0] << std::endl;
                 break;
             case 3:
-                std::cout << "Многочлен не имеет вещественных корней" << std::endl;
+                std :: cout << "The polynomial has no real roots" << std :: endl;
                 break;
             case 4:
-                std::cout << "Корни многочлена не целые" << std::endl;
+                std :: cout << "Polynomial roots are not integer" << std :: endl;
                 break;
             case 5:
                 std::cout << "x1 = " << tmp[0] << ",x2 не целый";
                 break;
             default:
-                std::cout << "Неизвестная ошибка при вычислении корней" << std::endl;
+                std::cout << "Unknown error while calculating roots" << std::endl;
                 break;
             }
 
@@ -89,5 +89,5 @@ void application::menu()
         }
         std::cout   << std::endl << std::endl;
     }
-    std::cout << "Завершение работы" << std::endl;
+    std::cout << "Completion of work" << std::endl;
 }
