@@ -58,7 +58,7 @@ void application::menu()
                 std :: cout << "Polynomial roots are not integer" << std :: endl;
                 break;
             case 5:
-                std::cout << "x1 = " << tmp[0] << ",x2 не целый";
+                std::cout << "x1 = " << tmp[0] << ",x2 not integer";
                 break;
             default:
                 std::cout << "Unknown error while calculating roots" << std::endl;
