@@ -11,7 +11,6 @@ private:
     number a;
     number b;
     number c;
-    number x;
 public:
     polinom();
     void set(number a,number b,number c);

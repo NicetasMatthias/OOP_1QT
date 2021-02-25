@@ -1,6 +1,7 @@
 #include "application.h"
 #define DBG 0
 
+
 application::application()
 {
     application::var=0;
@@ -52,6 +53,12 @@ void application::menu()
                 break;
             case 3:
                 std::cout << "Многочлен не имеет вещественных корней" << std::endl;
+                break;
+            case 4:
+                std::cout << "Корни многочлена не целые" << std::endl;
+                break;
+            case 5:
+                std::cout << "x1 = " << tmp[0] << ",x2 не целый";
                 break;
             default:
                 std::cout << "Неизвестная ошибка при вычислении корней" << std::endl;

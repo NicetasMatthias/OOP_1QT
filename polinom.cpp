@@ -5,14 +5,13 @@ polinom::polinom()
 polinom::a=1;
 polinom::b=0;
 polinom::c=0;
-polinom::x=0;
+//polinom::x=0;
 }
 void polinom::set(number a,number b,number c)
 {
     polinom::a=a;
     polinom::b=b;
     polinom::c=c;
-
 }
 
 void polinom::roots(short &flag, number &x1, number &x2)
@@ -23,22 +22,47 @@ void polinom::roots(short &flag, number &x1, number &x2)
                     1 - два разных корня
                     2 - два одинаковых корня
                     3 - нет корней
+                    4 - оба корня не целые
+                    5 - один корень не целый
                     */
     d=polinom::b*polinom::b-4*polinom::a*polinom::c;
-    if (d>0)
-    {
-        x1=(-polinom::b+sqrt(d))/(2*polinom::a);
-        x2=(-polinom::b-sqrt(d))/(2*polinom::a);
-        flag=1;
-    }
-    else if (d<0)
+
+    if (d<0)
     {
         flag = 3;
+        return;
+    }
+    else if (d==0)
+    {
+        x1=(-polinom::b)/(2*polinom::a);
+        if (polinom::value(x1)==0)
+        {
+            flag = 2;
+            return;
+        }
+        else
+        {
+            flag = 4;
+            return;
+        }
+    }
+    x1=(-polinom::b+sqrt(d))/(2*polinom::a);
+    x2=(-polinom::b-sqrt(d))/(2*polinom::a);
+    if ((polinom::value(x1)==0)&&(polinom::value(x2)==0))
+    {
+        flag = 1;
+        return;
+    }
+    else if (polinom::value(x1)==0)
+    {
+        flag = 5;
+        return;
     }
     else
     {
-        x1=(-polinom::b)/(2*polinom::a);
-        flag=2;
+        x1=x2;
+        flag = 5;
+        return;
     }
 }
 
@@ -72,6 +96,12 @@ std::string polinom::canon()
         break;
     case 3:
         ss << "Многочлен не имеет вещественных корней";
+        break;
+    case 4:
+        ss << "Корни многочлена не целые";
+        break;
+    case 5:
+        ss << "Один из корней многочлена не целый";
         break;
     default:
         ss << "Неизвестная ошибка при вычислении корней";
