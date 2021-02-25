@@ -17,11 +17,7 @@ void polinom::set(number a,number b,number c)
 
 void polinom::roots(short &flag, number &x1, number &x2)
 {
-    //number x1,x2,
     number d;
-    //char buffer[256];
-
-    //char flag=0;
                     /*
                     Значения flag
                     1 - два разных корня
@@ -44,24 +40,6 @@ void polinom::roots(short &flag, number &x1, number &x2)
         x1=(-polinom::b)/(2*polinom::a);
         flag=2;
     }
-    /*
-    switch (flag)
-    {
-    case 1:
-        snprintf(buffer, sizeof(buffer), "x1 = %f, x2 = %f", x1, x2);
-        break;
-    case 2:
-        snprintf(buffer, sizeof(buffer), "x1,x2 = %f", x1);
-        break;
-    case 3:
-        snprintf(buffer, sizeof(buffer), "Многочлен не имеет вещественных корней");
-        break;
-    default:
-        snprintf(buffer, sizeof(buffer), "Неизвестная ошибка при вычислении корней");
-        break;
-    }
-    return buffer;
-    */
 }
 
 number polinom::value(number x)
@@ -71,15 +49,15 @@ number polinom::value(number x)
 
 std::string polinom::stanadart()
 {
+    std::stringstream ss;
 
-    char buffer[256];
-    snprintf(buffer, sizeof(buffer), "%f*x^2 %+f*x %+f", polinom::a, polinom::b, polinom::c);
-    return buffer;
+    ss << std::showpos << polinom::a << "*x^2" << polinom::b << "*x" << polinom::c << std::endl;
+    return ss.str();
 }
 
 std::string polinom::canon()
 {
-    char buffer[256];
+    std::stringstream ss;
     short flag;
     number rts[2];
     polinom::roots(flag,rts[0],rts[1]);
@@ -87,22 +65,17 @@ std::string polinom::canon()
     switch (flag)
     {
     case 1:
-        snprintf(buffer, sizeof(buffer), "%f*(x %+f)*(x %+f) ", polinom::a, -rts[0], -rts[1]);
+        ss << std::showpos << polinom::a << "*(x" << -rts[0] << ")*(x" << -rts[1] << ")";
         break;
     case 2:
-        snprintf(buffer, sizeof(buffer), "%f*(x %+f)^2 ", polinom::a, -rts[0]);
+        ss << std::showpos << polinom::a << "*(x" << -rts[0] << ")^2";
         break;
     case 3:
-        snprintf(buffer, sizeof(buffer), "Многочлен не имеет вещественных корней");
+        ss << "Многочлен не имеет вещественных корней";
         break;
     default:
-        snprintf(buffer, sizeof(buffer), "Неизвестная ошибка при вычислении корней");
+        ss << "Неизвестная ошибка при вычислении корней";
         break;
     }
-    /*
-    snprintf(buffer, sizeof(buffer), polinom::roots().c_str());
-    if (strcmp(buffer,"Многочлен не имеет вещественных корней")==0)
-        snprintf(buffer, sizeof(buffer), polinom::stanadart().c_str());
-        */
-    return buffer;
+    return ss.str();
 }

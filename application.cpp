@@ -1,5 +1,4 @@
 #include "application.h"
-#include <iostream>
 #define DBG 0
 
 application::application()
@@ -27,8 +26,13 @@ void application::menu()
         {
         case 1:
             if (DBG) std::cout << 1 << std::endl;
-            std::cout << "a = ";
-            std::cin >> tmp[0];
+            std::cout << "a!=0\n";
+            do
+            {
+                std::cout << "a = ";
+                std::cin >> tmp[0];
+            }
+            while(tmp[0]==0);
             std::cout << "b = ";
             std::cin >> tmp[1];
             std::cout << "c = ";
@@ -37,7 +41,6 @@ void application::menu()
             break;
         case 2:
             if (DBG) std::cout << 2 << std::endl;
-            //std::cout << application::p.roots() << std::endl;
             application::p.roots(flag, tmp[0],tmp[1]);
             switch (flag)
             {
@@ -72,7 +75,6 @@ void application::menu()
             break;
         case 6:
             if (DBG) std::cout << 6 << std::endl;
-            std::cout << "Завершение работы" << std::endl;
             break;
         default:
             if (DBG) std::cout << 0 << " "<< application::var << std::endl;
@@ -80,4 +82,5 @@ void application::menu()
         }
         std::cout   << std::endl << std::endl;
     }
+    std::cout << "Завершение работы" << std::endl;
 }

@@ -2,6 +2,7 @@
 #define APPLICATION_H
 
 #include "polinom.h"
+#include <iostream>
 
 class application
 {

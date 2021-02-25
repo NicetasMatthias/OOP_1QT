@@ -2,9 +2,8 @@
 #define POLINOM_H
 
 #include <number.h>
-#include <string>
-#include <string.h>
 #include <cmath>
+#include <sstream>
 
 class polinom
 {
