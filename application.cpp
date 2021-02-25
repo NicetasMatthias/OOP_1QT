@@ -74,7 +74,7 @@ void application::menu()
             break;
         case 4:
             if (DBG) std::cout << 4 << std::endl;
-            std::cout << application::p.stanadart() << std::endl;
+            std::cout << application::p.standart() << std::endl;
             break;
         case 5:
             if (DBG) std::cout << 5 << std::endl;

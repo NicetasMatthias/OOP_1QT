@@ -16,7 +16,7 @@ public:
     void set(number a,number b,number c);
     void roots(short &flag, number &x1, number &x2);
     number value(number x);
-    std::string stanadart();
+    std::string standart();
     std::string canon();
 };
 

@@ -70,7 +70,7 @@ number polinom::value(number x)
     return polinom::a*x*x+polinom::b*x+polinom::c;
 }
 
-std::string polinom::stanadart()
+std::string polinom::standart()
 {
     std::stringstream ss;
 
